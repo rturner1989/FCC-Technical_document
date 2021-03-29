@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Technical Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet"> 
+    <meta name="author" content="Robert-Turner">
+    <meta name="description" content="Technical-Document">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body id="body">
+    <header id="header">
+        <h1>CSS Flexbox & CSS Grid</h1>
+    </header>
+    <nav id="navbar">
+        <header id="nav_header"><h2>Navigation</h2></header>
+        <a class="nav-link" href="#introduction">Introduction</a>
+        <a class="nav-link" href="#Flexbox">Flexbox</a>
+        <a class="nav-link" href="#Flexbox_Container">Flexbox Container</a>
+        <a class="nav-link" href="#Flexbox_Items">Flexbox Items</a>
+        <a class="nav-link" href="#Grid">Grid</a>
+        <a class="nav-link" href="#Grid_Container">Grid Container</a>
+        <a class="nav-link" href="#Grid_Items">Grid Items</a>
+    </nav>
+    <nav id="navbar1">
+        <header id="nav_header1"><h2>Navigation</h2></header>
+    <div id="nav-flex">
+        <a class="nav-link1" href="#introduction">Introduction</a>
+        <a class="nav-link1" href="#Flexbox">Flexbox</a>
+        <a class="nav-link1" href="#Flexbox_Container">Flexbox Container</a>
+        <a class="nav-link1" href="#Flexbox_Items">Flexbox Items</a>
+        <a class="nav-link1" href="#Grid">Grid</a>
+        <a class="nav-link1" href="#Grid_Container">Grid Container</a>
+        <a class="nav-link1" href="#Grid_Items">Grid Items</a>
+    </div>
+    </nav>
+    <main id="main-doc">
+            <section id="introduction" class="main-section">
+                <header class="section-header"><h2>Introduction</h2></header>
+                <p>A comprehensive guide to understanding CSS Flexbox and CSS Grid. We will be focusing on all the
+                    different properties for both the parent element (Container) and the child elements (items).</p>
+                <p>This document is broken up into two sections:</p>
+                <ul id="intro-list">
+                    <li>CSS Flexbox</li>
+                    <li>CSS Grid</li>
+                </ul>
+            </section>
+            <section id="Flexbox" class="main-section">
+                <header class="section-header"><h2>Flexbox</h2></header>
+                <p>CSS Flexbox is a layout module in CSS3 made to improve the alignment, direction and order of an item
+                    within a container, even when their size is unknown and/or dynamic.</p>
+                <p>The main idea behind the flex layout is to give the container the ability to alter its items'
+                    width/height to best fill the available space. A flex container expands items to fill available free
+                    space, or shrinks them to prevent overflow.</p>
+                <p>The basic difference between CSS Grid Layout and CSS Flexbox Layout is that flexbox was designed for
+                    layout in one dimension - either a row or a column. Grid was designed for two-dimensional layout -
+                    rows, and columns at the same time.</p>
+                <p>The Flexbox training below is broken into two sections:</p>
+                <ul id="flexbox-list">
+                    <li>Flexbox Container</li>
+                    <li>Flexbox Items</li>
+                </ul>
+            </section>
+            <section id="Flexbox_Container" class="main-section">
+                <header class="section-header"><h2>Flexbox Container</h2></header>
+                <h3>Display</h3>
+                <p>This defines a flex container; inline or block depending on the given value. It enables a flex
+                    context for all its direct children.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+}</code></pre>
+                <h3>Flex-Direction</h3>
+                <p>This establishes the main-axis, defining the direction flex items are placed in the flex
+                    container. Flexbox is a single-direction layout concept. Think of
+                    flex items as primarily laying out either in horizontal rows or vertical columns.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+    <span class="concept">flex-direction</span>: <span class="value">row / row-reverse / column / column-reverse</span>;
+}</code></pre>
+                <h3>Flex-Wrap</h3>
+                <p>By default, flex items will all try to fit onto one line. You can change that and allow the items to
+                    wrap as needed with this property.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+    <span class="concept">flex-direction</span>: <span class="value">row</span>;
+    <span class="concept">flex-wrap</span>: <span class="value">nowrap / wrap / wrap-reverse</span>;
+}</code></pre>
+                <h3>Justify-Content</h3>
+                <p>This defines the alignment along the main axis. It helps distribute extra free space left over when
+                    either all the flex items on a line are inflexible, or are flexible but have reached their maximum
+                    size. It also exerts some control over the alignment of items when they overflow the line.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+    <span class="concept">flex-direction</span>: <span class="value">row</span>;
+    <span class="concept">flex-wrap</span>: <span class="value">wrap</span>;
+    <span class="concept">justify-content</span>: <span class="value">flex-start / flex-end / center / space-between / space-around</span>;
+}</code></pre>
+                <h3>Align-Items</h3>
+                <p>This defines the default behavior for how flex items are laid out along the cross axis on the current
+                    line. Think of it as the justify-content version for the cross-axis.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+    <span class="concept">flex-direction</span>: <span class="value">row</span>;
+    <span class="concept">flex-wrap</span>: <span class="value">wrap</span>;
+    <span class="concept">justify-content</span>: <span class="value">center</span>;
+    <span class="concept">align-items</span>: <span class="value">stretch / flex-start / flex-end / center / baseline</span>;
+}</code></pre>
+                <h3>Align-Content</h3>
+                <p>This aligns a flex container's lines within when there is extra space in the cross-axis, similar to
+                    how justify-content aligns individual items within the main-axis. </p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">flex</span>;
+    <span class="concept">flex-direction</span>: <span class="value">row</span>;
+    <span class="concept">flex-wrap</span>: <span class="value">wrap</span>;
+    <span class="concept">justify-content</span>: <span class="value">center</span>;
+    <span class="concept">align-items</span>: <span class="value">center</span>;
+    <span class="concept">align-content</span>: <span class="value">flex-start / flex-end / center / space-between / space-around / stretch</span>;
+}</code></pre>
+            </section>
+            <section id="Flexbox_Items" class="main-section">
+                <header class="section-header"><h2>Flexbox Items</h2></header>
+                <h3>Order</h3>
+                <p>By default, flex items are laid out in the source order. However, the order property controls the
+                    order in which they appear in the flex container.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">order</span>: <span class="value">(number)</span>;
+}</code></pre>
+                <h3>Flex-Grow</h3>
+                <p>The flex-grow property sets how much of the available space in the flex container should be
+                    assigned to that item. If all sibling items have the same flex grow factor,
+                    then all items will receive the same share of available space, otherwise it is distributed according
+                    to the ratio defined by the different flex grow factors.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">flex-grow</span>: <span class="value">(number)</span>;
+}</code></pre>
+                <h3>Flex-Shrink</h3>
+                <p>This defines the ability for a flex item to shrink if necessary.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">flex-shrink</span>: <span class="value">(number)</span>;
+}</code></pre>
+                <h3>"Flex-Basis"</h3>
+                <p>The flex-basis CSS property sets the initial main size of a flex item. It sets the size of the
+                    content box unless otherwise set with box-sizing.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">flex-basis</span>: <span class="value">(length) / auto</span>;
+}</code></pre>
+                <h3>Align-Self</h3>
+                <p>This allows the default alignment (or the one specified by align-items) to be overridden for
+                    individual flex items.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">align-self</span>: <span class="value">auto / flex-start / flex-end / center / baseline / stretch</span>;
+}</code></pre>
+            </section>
+            <section id="Grid" class="main-section">
+                <header class="section-header"><h2>Grid</h2></header>
+                <p>CSS Grid Layout, is a two-dimensional grid-based layout system that aims to do nothing less than completely change the way we design grid-based user interfaces. CSS has always been used to lay out our web pages, but it’s never done a very good job of it. First, we used tables, then floats, positioning and inline-block, but all of these methods were essentially hacks and left out a lot of important functionality. Flexbox helped out, but it’s intended for simpler one-dimensional layouts, not complex two-dimensional ones. Grid is the very first CSS module created specifically to solve the layout problems we’ve all been hacking our way around for as long as we’ve been making websites.</p>
+                <p>The Grid training below is broken into two sections:</p>
+                <ul id="grid-list">
+                    <li>Grid Container</li>
+                    <li>Grid Items</li>
+                </ul>
+            </section>
+            <section id="Grid_Container" class="main-section">
+                <header class="section-header"><h2>Grid Container</h2></header>
+                <h3>Display</h3>
+                <p>Defines the element as a grid container and establishes a new grid formatting context for its contents.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">grid | inline-grid</span>;
+}</code></pre>
+                <h3>Grid-Template-Columns</h3>
+                <h3>Grid-Template-Rows</h3>
+                <p>Defines the columns and rows of the grid with a space-separated list of values.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display: <span class="value">grid</span>;
+    <span class="concept">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="concept">grid-template-columns</span>: <span class="value">20% auto</span>;
+}</code></pre>
+                <h3>Grid-Template-Areas</h3>                
+                <p>Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property. Repeating the name of a grid area causes the content to span those cells. A period signifies an empty cell.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">grid</span>;
+    <span class="concept">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="concept">grid-template-columns</span>: <span class="value">20% auto</span>;
+    <span class="concept">grid-template-areas</span>: <span class="value">section1 section2</span>;
+}</code></pre>
+                <h3>Column-Gap</h3>
+                <h3>Row-Gap</h3>
+                <h3>Grid-Column-Gap</h3>
+                <h3>Grid-Row-Gap</h3>
+                <p>Specifies the size of the grid lines.</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value"></span>grid;
+    <span class="concept">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="concept">grid-template-columns</span>: <span class="value">20% auto</span>;
+    <span class="concept">grid-template-areas</span>: <span class="value">section1 section2</span>;               
+    <span class="concept">column-gap</span>: <span class="value">10px</span>;
+}</code></pre>
+                <h3>Justify-Content</h3>
+                <p>Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">grid</span>;
+    <span class="concept">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="concept">grid-template-columns</span>: <span class="value">20% auto</span>;
+    <span class="concept">grid-template-areas</span>: <span class="value">section1 section2</span>;               
+    <span class="concept">column-gap</span>: <span class="value">10px</span>;
+    <span class="concept">justify-content</span>: <span class="value">start / end / center / space-between / space-around</span>;
+}</code></pre>
+                <h3>Align-Content</h3>
+                <p>Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the block (column) axis (as opposed to justify-content which aligns the grid along the inline (row) axis).</p>
+                <pre class="code"><code>.container {
+    <span class="concept">display</span>: <span class="value">grid</span>;
+    <span class="concept">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="concept">grid-template-columns</span>: <span class="value">20% auto</span>;
+    <span class="concept">grid-template-areas</span>: <span class="value">section1 section2</span>;               
+    <span class="concept">column-gap</span>: <span class="value">10px</span>;
+    <span class="concept">justify-content</span>: <span class="value">start</span>;
+    <span class="concept">align-content</span>: <span class="value">start / end / center / space-between / space-around</span>;
+}</code></pre>
+            </section>
+            <section id="Grid_Items" class="main-section">
+                <header class="section-header"><h2>Grid Items</h2></header>
+                <h3>Grid-Area</h3>
+                <p>Gives an item a name so that it can be referenced by a template created with the grid-template-areas property.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">grid-area</span>: <span class="value">section1</span>;
+}</code></pre>
+                <h3>Justify-Self</h3>
+                <p>Aligns a grid item inside a cell along the inline (row) axis (as opposed to align-self which aligns along the block (column) axis). This value applies to a grid item inside a single cell.</p>            
+                <pre class="code"><code>.item {
+    <span class="concept">justify-self</span>: <span class="value">start / end / cneter / stretch</span>;
+}</code></pre>
+                <h3>Align-Self</h3>
+                <p>Aligns a grid item inside a cell along the block (column) axis (as opposed to justify-self which aligns along the inline (row) axis). This value applies to the content inside a single grid item.</p>
+                <pre class="code"><code>.item {
+    <span class="concept">align-self</span>: <span class="value">start / end / cneter / stretch</span>;
+}</code></pre>
+            </section>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>
